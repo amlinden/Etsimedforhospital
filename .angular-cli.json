@@ -21,11 +21,13 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/materialize-css/dist/css/materialize.css",
-        "styles.css"
+        "styles.scss"
       ],
-      "scripts": ["../node_modules/jquery/dist/jquery.js",
-  "../node_modules/hammerjs/hammer.js",
-  "../node_modules/materialize-css/dist/js/materialize.js"],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/hammerjs/hammer.js",
+        "../node_modules/materialize-css/dist/js/materialize.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -55,7 +57,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

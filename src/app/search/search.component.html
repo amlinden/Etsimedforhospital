@@ -8,13 +8,26 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="col-xs-6">
-                <div class="input-field">
-                    <input [(ngModel)]="symptom" name="sd" type="text" class="validate">
-                    <label for="last_name">Search symptom</label>
-                </div>
+                <md-input-container>
+                    <input type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+                </md-input-container>
 
+                <md-autocomplete #auto="mdAutocomplete">
+                <md-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{ option }}
+                </md-option>
+                </md-autocomplete>
+
+                <div class="input-field">
+                    <input 
+                        [(ngModel)]="searchQuery" 
+                        name="sd" 
+                        type="text" 
+                        class="validate"
+                        (keyup)="onKey($event)"
+                    >
+                </div>
             </div>
-            
             <div class="col-xs-6">
                 <div class="chip">
                     {{symptom}}
@@ -24,6 +37,27 @@
         </div>
     </div>
 </div>
+
+
+<!--
+<md-autocomplete 
+    md-selected-item="selectedItem" 
+    md-search-text="searchText" 
+    md-items="item in getMatches(searchText)" 
+    md-item-text="item.display">
+  <md-item-template>
+    <span md-highlight-text="searchText">{{item.display}}</span>
+  </md-item-template>
+  <md-not-found>
+    No matches found.
+  </md-not-found>
+</md-autocomplete>
+-->
+<ul>
+    <li *ngFor='let el of theArray as elements'>
+        <button class="autoButton">{{el}}</button>
+    </li>
+</ul>
 
 <div class="container">
     <div class="row">           
