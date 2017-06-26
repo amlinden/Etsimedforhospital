@@ -5,20 +5,16 @@ import { Observable, Subject } from 'rxjs';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
 
   myControl: FormControl;
-
-  searchQuery: string = '';
-  //autocompleteList: Array<string> = [];
-  autocompleteList = ['Loss of Appetite',
-    'Loss of Speech'];
-
-  option: string;
-  options: Array<any> = ['Start typing to see symptoms'];
-  filteredOptions: Observable<string[]>;
+  error: boolean = false; 
+  symptoms: Array<any> = [];
+  option: object;
+  options: Array<any>;
+  filteredOptions: Observable<object[]>;
   //theObservable : Observable<any[]> = Observable.of(this.options);
   //theSubject = new Subject<Array<any>>();
   //theSubscription = this.theSubject.subscribe(
@@ -26,6 +22,7 @@ export class SearchComponent implements OnInit {
   //)
   constructor(private _SearchService: SearchService) {
     this.myControl = new FormControl();
+    
   }
 
 /*
@@ -34,36 +31,70 @@ export class SearchComponent implements OnInit {
     if (event.target !== undefined){
       this._SearchService.getAutoComplete(event.target.value.toLowerCase())
         .subscribe(
-          data => this.options = this.responseToArray(data)
+          data => this.options = this.filterResponse(data)
         )
     }
   }
 */
+  compareInput(input){
+    console.log(this.symptoms);
+    if (this.options.length > 0){
+      if (this.options[0].name.toLowerCase() === input.toLowerCase() ){
+        console.log("it's the same");
+        this.error = false;
+        this.addSymptom(this.options[0]);
+      }else{
+        console.log('sorry, its an error');
+        this.error = true;
+      }
+    } else {
+      console.log('Also an error');
+      this.error = true;
+    }
+  }
+  addSymptom(symptom){
+    let exists = false; 
+    for (let i = 0; i < this.symptoms.length; i++){
+      if (this.symptoms[i].id === symptom.id){
+        exists = true;
+      }
+    }
+    if(exists===false){
+      this.symptoms.push(symptom);
+      this.myControl.reset();
+    }
+  }
+  removeSymptom(symptomID){
+    console.log('heyyaaa', symptomID);
+    for (let i=0;i<this.symptoms.length; i++){
+      if(this.symptoms[i].id === symptomID){
+        console.log('found it!');
+        this.symptoms.splice(i, 1);
+      }
+    }
+  }
   getMatches(query){
-    console.log(query);
-    let matches: any[];
- 
+    let matches: Array<any>;
     this._SearchService.getAutoComplete(query.toLowerCase())
       .subscribe(
         data => {
-          console.log('data is:', data);
-          matches = this.responseToArray(data)
-          
+          matches = this.filterResponse(data)
         }
       )
 
     return matches;
   }
   
-  responseToArray(object) {
-    let myArray = [];
+  filterResponse(object) {
+    let myArray: object[] = [];
+
     if(object.length > 0 && object !== undefined ){
       let limit = 5;
       if(object.length < 6){
         limit = object.length;
       }
       for(let i = 0; i < limit; i++){
-        myArray.push(object[i].name);
+        myArray.push(object[i]);
       }
     }
     return myArray;
@@ -71,10 +102,10 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
-         .map( data => { 
-           console.log(this.getMatches(data));
+         .map( data => {
            return this.getMatches(data);
           })
+    this.filteredOptions.subscribe( data => this.options = data);
   }
 
 }

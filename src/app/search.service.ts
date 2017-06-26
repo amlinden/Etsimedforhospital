@@ -48,10 +48,8 @@ export class SearchService {
     let db = this.data.symptoms;
 
     if (query === '' || query === null){
-      console.log('creating regexp1!');
       var re = new RegExp(query);
     }else{
-      console.log('creating regexp2!', query);
       var re = new RegExp(query);
     }
     
