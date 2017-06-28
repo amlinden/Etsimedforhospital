@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12"><h3></h3></div>
+       
+    </div>
+</div>
+<div *ngIf="show" class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="col-xs-6">
+        <div id="user-data">
+          <div class="form-group">
+            <div class="input-field">
+              <input 
+              type="text" 
+              class="form-control"
+              id="age"
+              ngModel
+              name="age">
+              <label for="age">Enter age</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <md-radio-group>
+            <md-radio-button value="1">Male</md-radio-button>
+            <md-radio-button value="2">Female</md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="show"class="container">
+
+</div>
