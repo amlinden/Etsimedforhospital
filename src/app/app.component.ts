@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  show = 0;
-    onEvent(){
-      this.show = this.show+1;
-    }
+  
 
 }
