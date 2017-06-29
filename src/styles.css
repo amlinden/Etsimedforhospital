@@ -2,3 +2,30 @@
 * {
     box-sizing: border-box;
 }
+
+nav {
+    color: #fff;
+    background-color: #6FC1E0;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+}
+
+.dropdown-content li > span {
+    font-size: 16px;
+    color: #6FC1E0;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+
+.btn, .btn-large {
+    text-decoration: none;
+    color: #fff;
+    background-color: #B3D5E6;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+}
