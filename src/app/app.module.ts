@@ -4,9 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import 'hammerjs';
+import {MdMenuModule} from '@angular/material';
+
+
 
 //Material
-import { MdButtonModule, MaterialModule} from '@angular/material';
+import { MdButtonModule, MaterialModule,} from '@angular/material';
 
 //Components
 import { AppComponent } from './app.component';
@@ -28,6 +31,7 @@ import { SearchService } from "./search.service";
     ReactiveFormsModule,
     MaterialModule, 
     MdButtonModule,
+    MdMenuModule,
   ],
   providers: [
     SearchService
