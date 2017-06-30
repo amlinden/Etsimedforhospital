@@ -1,9 +1,37 @@
-<md-card>
+<div class="container">
+  <div class="card"></div>
+  <div class="card">
+    <h1 class="title">Login</h1>
+    <form>
+      <div class="input-container">
+        <input type="#{type}" id="#{label}" required="required"/>
+        <label for="#{label}">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="#{type}" id="#{label}" required="required"/>
+        <label for="#{label}">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button><span>Go</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <div class="card"></div>
+  <div class="card">
+
     <md-grid-list cols="1" rowHeight="80px">
         <md-grid-tile>
-            <md-input-container>
-            <input mdInput placeholder="Age">
-            </md-input-container>
+            <form>
+            <div class="input-container">
+                <input type="#{type}" id="#{label}" required="required"/>
+                <label for="#{label}">Age</label>
+                <div class="bar"></div>
+            </div>
+            </form>
         </md-grid-tile>
         <md-grid-tile>
             <md-radio-group>
@@ -12,27 +40,29 @@
             </md-radio-group>
         </md-grid-tile>
     </md-grid-list>
-</md-card>
 
 
 
-<md-card>
-    <md-grid-list cols="2" rowHeight="3:1">
-        <md-grid-tile style='background: lightblue;'>
+</div>
+</div>
+<md-card class="search-card">
+    <md-grid-list cols="3" rowHeight="1:1">
+        <md-grid-tile style='background: rgba(179,213,230, 0.14)'>
             <div>
-                <md-input-container>
-                    <input #stuff type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
-                    <md-hint *ngIf="error" [ngStyle]="{'color': 'red'}" align="start">
-                        You're a bad boi
-                    </md-hint>
-                </md-input-container>
+                <md-card-content>
+                    <md-input-container>
+                        <input #stuff type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
+                        <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
+                            Maybe you're a hypochondriac
+                        </md-hint>
+                    </md-input-container>
 
-                <md-autocomplete #auto="mdAutocomplete">
-                    <md-option *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)="addSymptom(option)">
-                        {{ option.name }}
-                    </md-option>
-                </md-autocomplete>
-
+                    <md-autocomplete #auto="mdAutocomplete">
+                        <md-option *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)="addSymptom(option)">
+                            {{ option.name }}
+                        </md-option>
+                    </md-autocomplete>
+                </md-card-content>
             </div>
         </md-grid-tile>
 
