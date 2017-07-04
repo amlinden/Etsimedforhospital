@@ -1,3 +1,59 @@
+<md-card>
+    <md-card-title>New Diagnose</md-card-title>
+    <md-card-subtitle>Select age and gender</md-card-subtitle>
+
+    <md-input-container class="example-full-width">
+        <input mdInput type="number" placeholder="Age">
+    </md-input-container>
+
+    <md-radio-group [(ngModel)]="chosenSex">
+        <md-radio-button value=0>
+            Male
+        </md-radio-button>
+        <md-radio-button value=1>
+            Female
+        </md-radio-button>
+    </md-radio-group>
+
+    <md-card-actions>
+    <button md-raised-button color="primary">NEXT</button>
+  </md-card-actions>
+</md-card>
+
+<md-card class="search-card">
+    <md-card-title>Symptoms</md-card-title>
+    <md-card-subtitle>Start typing to find symptoms</md-card-subtitle>
+    <md-grid-list cols="3" rowHeight="1:1">
+        <md-grid-tile style='background: rgba(179,213,230, 0.14)'>
+            <div>
+                <md-card-content>
+                    <md-input-container>
+                        <input  placeholder="Symptoms" #stuff type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
+                        <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
+                            Maybe you're a hypochondriac
+                        </md-hint>
+                    </md-input-container>
+
+                    <md-autocomplete #auto="mdAutocomplete">
+                        <md-option *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)="addSymptom(option)">
+                            {{ option.name }}
+                        </md-option>
+                    </md-autocomplete>
+                </md-card-content>
+            </div>
+        </md-grid-tile>
+
+        <md-grid-tile>
+            <md-chip-list>
+                <md-chip *ngFor="let symptom of symptoms">{{symptom.name}}<button class="chip-button" (click)="removeSymptom(symptom.id)"><md-icon class="chip-icon">close</md-icon></button></md-chip>
+            </md-chip-list>
+        </md-grid-tile>
+    </md-grid-list>
+    <button md-raised-button>Cancel</button>
+    <button md-raised-button color="primary">NEXT</button>
+</md-card>
+
+
 <div class="container">
   <div class="card"></div>
   <div class="card">
@@ -45,36 +101,6 @@
 
 </div>
 </div>
-<md-card class="search-card">
-    <md-grid-list cols="3" rowHeight="1:1">
-        <md-grid-tile style='background: rgba(179,213,230, 0.14)'>
-            <div>
-                <md-card-content>
-                    <md-input-container>
-                        <input #stuff type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
-                        <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
-                            Maybe you're a hypochondriac
-                        </md-hint>
-                    </md-input-container>
-
-                    <md-autocomplete #auto="mdAutocomplete">
-                        <md-option *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)="addSymptom(option)">
-                            {{ option.name }}
-                        </md-option>
-                    </md-autocomplete>
-                </md-card-content>
-            </div>
-        </md-grid-tile>
-
-        <md-grid-tile>
-            <md-chip-list>
-                <md-chip *ngFor="let symptom of symptoms">{{symptom.name}}<button (click)="removeSymptom(symptom.id)"><md-icon>close</md-icon></button></md-chip>
-            </md-chip-list>
-        </md-grid-tile>
-    </md-grid-list>
-    <button md-raised-button>Cancel</button>
-    <button md-raised-button>NEXT</button>
-</md-card>
 
 
 <!--

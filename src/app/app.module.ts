@@ -4,24 +4,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import 'hammerjs';
-import {MdMenuModule} from '@angular/material';
-
-
 
 //Material
-import { MdButtonModule, MaterialModule,} from '@angular/material';
+import { MdButtonModule, MaterialModule, MdMenuModule} from '@angular/material';
 
 //Components
-import { AppComponent } from './app.component';
+import { AppComponent, LoginDialog } from './app.component';
 import { SearchComponent } from './search/search.component'; //typescripts now know where to find it and it can be used
+import { LoginComponent } from './login/login.component';
 
 //Services
 import { SearchService } from "./search.service";
+import { LoginService } from "./login.service";
+
 
 @NgModule({ //Register components so nh module knows
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent,
+    LoginDialog
+  ],
+  entryComponents: [
+    AppComponent,
+    LoginDialog
   ],
   imports: [ //imports - allows us to add other modules to this module
     BrowserModule,
@@ -31,10 +37,11 @@ import { SearchService } from "./search.service";
     ReactiveFormsModule,
     MaterialModule, 
     MdButtonModule,
-    MdMenuModule,
+    MdMenuModule
   ],
   providers: [
-    SearchService
+    SearchService,
+    LoginService
     ],
   bootstrap: [AppComponent]
 })

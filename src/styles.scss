@@ -3,8 +3,8 @@
 // MATERIAL THEME:
 @import "~@angular/material/theming";
 @include mat-core();
-$primary: mat-palette($mat-orange, 800);
-$accent:  mat-palette($mat-light-blue, 600, A100, A400);
+$primary: mat-palette($mat-light-blue, 800);
+$accent:  mat-palette($mat-cyan, 600, A100, A400);
 $warn:    mat-palette($mat-red, 600);
 $theme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
@@ -13,6 +13,34 @@ $theme: mat-light-theme($primary, $accent, $warn);
 body{
     font-family: 'Roboto', sans-serif;
 }
+.mat-card {
+  margin-top: 20px;
+}
+.chip-button {
+  border: none;
+  height: 100%;
+  width: 20px;
+  padding: 0;
+  margin-left: 15px;
+  display: inline-flex;
+  vertical-align: middle;
+}
+.chip-icon{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+.toolbar-icon {
+  padding: 0 14px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+
 //card
 .search-card {
 
@@ -48,7 +76,7 @@ body{
   text-decoration: none;
 }
 
-/* Rerun */
+// Rerun 
 .rerun {
   margin: 0 0 30px;
   text-align: center;
@@ -72,7 +100,7 @@ body{
 
 
 
-/* Container */
+// Container
 .container {
   position: relative;
   max-width: 460px;
@@ -142,7 +170,7 @@ body{
           transition-delay: .7s;
 }
 
-/* Card */
+// Card 
 .card {
   position: relative;
   background: #ffffff;
@@ -152,11 +180,11 @@ body{
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: .3s ease;
   transition: .3s ease;
-  /* Title */
-  /* Inputs */
-  /* Button */
-  /* Footer */
-  /* Alt Card */
+  // Title
+  // Inputs
+  // Button
+  // Footer
+  // Alt Card
 }
 .card:first-child {
   background: #fafafa;
@@ -326,10 +354,10 @@ body{
   padding: 0;
   -webkit-transition: .3s ease;
   transition: .3s ease;
-  /* Toggle */
-  /* Title */
-  /* Input */
-  /* Button */
+  // Toggle
+  // Title
+  // Input
+  // Button
 }
 .card.alt .toggle {
   position: relative;
@@ -413,7 +441,7 @@ body{
   display: none;
 }
 
-/* Keyframes */
+// Keyframes
 @-webkit-keyframes buttonFadeInUp {
   0% {
     bottom: 30px;
