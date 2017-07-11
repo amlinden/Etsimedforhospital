@@ -10,6 +10,9 @@ export class LoginComponent implements OnInit {
   constructor(private _LoginService: LoginService){
     
   }
+  onsubmit(){
+    console.log('submitted');
+  }
   login(){
     this._LoginService.login();
   }
