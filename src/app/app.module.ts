@@ -8,26 +8,31 @@ import 'hammerjs';
 //Material
 import { MdButtonModule, MaterialModule, MdMenuModule} from '@angular/material';
 
-//Components
-import { AppComponent, LoginDialog } from './app.component';
-import { SearchComponent } from './search/search.component'; //typescripts now know where to find it and it can be used
-import { LoginComponent } from './login/login.component';
+//Routing
+import { Routing } from "./app.routing";
 
 //Services
 import { SearchService } from "./search.service";
 import { LoginService } from "./login.service";
 
+//Components
+import { AppComponent} from './app.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { SymptomsComponent } from './symptoms/symptoms.component';
+import { AgesexComponent } from './agesex/agesex.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { DiagnoseComponent } from './diagnose/diagnose.component';
 
 @NgModule({ //Register components so nh module knows
   declarations: [
     AppComponent,
-    SearchComponent,
     LoginComponent,
-    LoginDialog
-  ],
-  entryComponents: [
-    AppComponent,
-    LoginDialog
+    HomeComponent,
+    SymptomsComponent,
+    AgesexComponent,
+    QuestionsComponent,
+    DiagnoseComponent
   ],
   imports: [ //imports - allows us to add other modules to this module
     BrowserModule,
@@ -37,7 +42,8 @@ import { LoginService } from "./login.service";
     ReactiveFormsModule,
     MaterialModule, 
     MdButtonModule,
-    MdMenuModule
+    MdMenuModule,
+    Routing
   ],
   providers: [
     SearchService,

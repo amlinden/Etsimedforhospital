@@ -1,0 +1,21 @@
+<md-card>
+    <md-card-title>New Diagnose</md-card-title>
+    <md-card-subtitle>Select age and gender</md-card-subtitle>
+
+    <md-input-container class="example-full-width">
+        <input mdInput type="number" placeholder="Age">
+    </md-input-container>
+
+    <md-radio-group [(ngModel)]="chosenSex">
+        <md-radio-button value=0>
+            Male
+        </md-radio-button>
+        <md-radio-button value=1>
+            Female
+        </md-radio-button>
+    </md-radio-group>
+
+    <md-card-actions>
+    <button md-raised-button color="primary">NEXT</button>
+  </md-card-actions>
+</md-card>
