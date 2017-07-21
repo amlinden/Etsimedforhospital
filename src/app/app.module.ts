@@ -21,6 +21,8 @@ import { Routing } from "./app.routing";
 //Services
 import { SearchService } from "./search.service";
 import { LoginService } from "./login.service";
+import { DiagnoseService } from "./diagnose.service";
+
 //import { AuthService } from './providers/auth.service';
 import { AuthService } from './shared/auth.service';
 
@@ -33,6 +35,8 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AgesexComponent } from './agesex/agesex.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { DiagnoseComponent } from './diagnose/diagnose.component';
+import { ResultComponent } from './result/result.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },
@@ -47,7 +51,9 @@ import { DiagnoseComponent } from './diagnose/diagnose.component';
     SymptomsComponent,
     AgesexComponent,
     QuestionsComponent,
-    DiagnoseComponent
+    DiagnoseComponent,
+    ResultComponent,
+    FeedbackComponent
   ],
   imports: [ //imports - allows us to add other modules to this module
     BrowserModule,
@@ -68,7 +74,8 @@ import { DiagnoseComponent } from './diagnose/diagnose.component';
   providers: [
     SearchService,
     LoginService,
-    AuthService
+    AuthService,
+    DiagnoseService
     ],
   bootstrap: [AppComponent]
 })
