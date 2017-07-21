@@ -1,5 +1,22 @@
+<md-toolbar color="accent">
+    <span>Etsimo</span>
+    <span class="toolbar-spacer"></span>
+    <button class="toolbar-icon" md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+        <button md-menu-item>
+            <md-icon>account_circle</md-icon>
+            <span>Account settings</span>
+        </button>
+        <button md-menu-item>
+            <md-icon>rowing</md-icon>
+            <span>Log out</span>
+        </button>
+    </md-menu>
+</md-toolbar>
+<app-diagnose></app-diagnose>
 <app-symptoms></app-symptoms>
 <app-agesex></app-agesex>
-<app-diagnose></app-diagnose>
-<app-login></app-login>
+<!--<app-login></app-login>-->
 <app-questions></app-questions>

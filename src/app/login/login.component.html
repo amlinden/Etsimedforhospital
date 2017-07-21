@@ -1,4 +1,4 @@
-<h1 md-dialog-title color="primary">LOGIN</h1>
+<!--<h1 md-dialog-title color="primary">LOGIN</h1>
 
 <md-input-container required class="example-full-width">
   <input mdInput placeholder="Username" id="username">
@@ -10,7 +10,7 @@
 <div md-dialog-actions>
   <button md-raised-button required color="primary" (click)="login()">LOGIN</button>
   <button md-raised-button requiredmd-dialog-close="Option 2">CANCEL</button>
-</div>
+</div>-->
 
 <div class="container">
   <div class="card"></div>
@@ -28,10 +28,10 @@
         <div class="bar"></div>
       </div>
       <div class="button-container">
-        <button><span>Go</span></button>
+        <button (click)="loginWithGoogle()"><span>Go</span></button>
       </div>
     </form>
   </div>
 </div>
 
-<button md-raised-button color="warn" (click)="openDialog()">Open login dialog</button>
+<!--<button md-raised-button color="warn" >Open login dialog</button>-->
