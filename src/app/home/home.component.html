@@ -1,5 +1,12 @@
-<!--<md-toolbar color="accent">
-    <span>Etsimo</span>
+
+      <div *ngIf="!isLoggedIn">
+        <p class="navbar-text navbar-right">Logged Out</p>
+      </div>
+<md-toolbar color="accent">
+    <span>Etsimo </span>
+    <div *ngIf="isLoggedIn">
+    <span><h5>{{user_displayName}}</h5></span></div>
+     <!--<span>Logged In: {{user_displayName}} ({{user_email}}) </span></div>-->
     <span class="toolbar-spacer"></span>
     <button class="toolbar-icon" md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon>more_vert</md-icon>
@@ -9,14 +16,13 @@
             <md-icon>account_circle</md-icon>
             <span>Account settings</span>
         </button>
-        <button md-menu-item>
+        <button (click)="logout()" md-menu-item>
             <md-icon>rowing</md-icon>
             <span>Log out</span>
         </button>
     </md-menu>
-</md-toolbar>-->
-<router-outlet></router-outlet>
+</md-toolbar>
 
 
-
-
+<app-diagnose></app-diagnose>
+<!--<app-login></app-login>-->
