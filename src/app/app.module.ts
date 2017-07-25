@@ -12,12 +12,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+
 //Material
 import { MdButtonModule, MaterialModule, MdMenuModule} from '@angular/material';
 
 //Routing
 import { Routing } from "./app.routing";
 
+
+//import { Routing } from "./app.routing";
 //Services
 import { SearchService } from "./search.service";
 import { LoginService } from "./login.service";
@@ -36,7 +39,8 @@ import { DiagnoseComponent } from './diagnose/diagnose.component';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },
-//   { path: 'login', component: LoginComponent }
+//   { path: 'login', component: LoginComponent },
+//   { }
 // ];
 
 @NgModule({ //Register components so nh module knows
@@ -59,7 +63,7 @@ import { DiagnoseComponent } from './diagnose/diagnose.component';
     MdButtonModule,
     MdMenuModule,
     Routing,
-    AngularFireModule.initializeApp(environment.firebase),// Updated version looks like that
+    AngularFireModule.initializeApp(environment.firebase, 'etsimed'),// Updated version looks like that
     //AngularFireModule.initializeApp(firebaseConfig), 
     //from update firebase 4.0
     AngularFireDatabaseModule,

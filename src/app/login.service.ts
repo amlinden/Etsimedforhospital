@@ -12,8 +12,9 @@ export class LoginService {
   login(username?, password?){
     this.authorized.next(true);
   }
-  logout(){
-    this.authorized.next(false);
-  }
+  //jag använder en logout
+  // logout(){
+  //   this.authorized.next(false);
+  // }
   
 }

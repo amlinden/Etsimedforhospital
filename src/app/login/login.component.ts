@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 //import { AuthService } from '../providers/auth.service';
 import { AuthService } from '../shared/auth.service';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
+import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-login',
@@ -17,20 +18,27 @@ import { environment } from 'environments/environment';
 
 export class LoginComponent implements OnInit {
   user = null;
-  constructor(private auth: AuthService, public db: AngularFireDatabase, private router:Router) { }
+  constructor(public auth: AuthService, public db: AngularFireDatabase, private router:Router) { }
   ngOnInit() {
-    this.auth.getAuthState().subscribe(
-      (user) => this.user = user);
+    // this.auth.getAuthState().subscribe(
+    //   (user) => this.user = user);
   }
   loginWithGoogle() {
     this.auth.loginWithGoogle().then((data) => {
-      this.router.navigate(['']);
+    this.router.navigate(['']);
     })
   }
 
   isLoggedin() {
     return this.auth.isLoggedin();
   }
+  // logout() {
+  //   this.auth.logout();
+  //   this.router.navigate(['login']);
+    
+  // }
+ 
+  
 }
 // export class LoginComponent implements OnInit {
 

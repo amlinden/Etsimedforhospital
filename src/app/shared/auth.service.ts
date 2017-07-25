@@ -27,11 +27,22 @@ constructor(public afAuth: AngularFireAuth) {
   return this.afAuth.auth.signInWithPopup(
     new firebase.auth.GoogleAuthProvider());
   }
-  isLoggedin() {
+  
+  logout() {
+    this.afAuth.auth.signOut();
+  }
+
+   isLoggedin() {
   if(this.currentUser == null){
     return false
   }
-  return true
+  return true;
+  }
 }
 
-}
+
+//tog bort i senaste tutorial
+ 
+  // return true
+//}
+
