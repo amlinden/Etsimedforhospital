@@ -23,10 +23,13 @@
 
         <md-grid-tile>
             <md-chip-list>
-                <md-chip *ngFor="let symptom of symptoms">{{symptom.name}}<button class="chip-button" (click)="removeSymptom(symptom.id)"><md-icon class="chip-icon">close</md-icon></button></md-chip>
+                <md-chip *ngFor="let symptom of symptoms">
+                    {{symptom.name}}
+                    <button class="chip-button" (click)="_DiagnoseService.removeSymptom(symptom)">
+                        <md-icon class="chip-icon" style="cursor: pointer;">close</md-icon>
+                    </button>
+                </md-chip>
             </md-chip-list>
         </md-grid-tile>
     </md-grid-list>
-    <button md-raised-button>Cancel</button>
-    <button md-raised-button color="primary">NEXT</button>
 </md-card>

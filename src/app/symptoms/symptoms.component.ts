@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from  '@angular/forms';
 import { SearchService } from "../search.service";
 import { Observable, Subject } from 'rxjs';
+import { DiagnoseService } from '../diagnose.service';
 
 @Component({
   selector: 'app-symptoms',
@@ -15,11 +16,14 @@ export class SymptomsComponent implements OnInit {
   options: Array<any>;
   error: boolean = false; 
   filteredOptions: Observable<object[]>;
+  step;
 
-  constructor(private _SearchService: SearchService) {
+  constructor(private _SearchService: SearchService, private _DiagnoseService: DiagnoseService) {
     this.myControl = new FormControl();
+    this._DiagnoseService.currentStepObservable.subscribe( data => this.step = data );
+    this._DiagnoseService.symptomsObservable.subscribe( data => this.symptoms = data );
    }
-
+/*
   addSymptom(symptom){
     let exists = false; 
     for (let i = 0; i < this.symptoms.length; i++){
@@ -42,33 +46,41 @@ export class SymptomsComponent implements OnInit {
       }
     }
   }
+*/
+  addSymptom(symptom){
+    this._DiagnoseService.addSymptom(symptom);
+    this.myControl.reset();
+    this.error = false;
+  }
 
   compareInput(input){
-    console.log(this.symptoms);
-    if (this.options.length > 0){
-      if (this.options[0].name.toLowerCase() === input.toLowerCase() ){
-        console.log("it's the same");
-        this.error = false;
-        this.addSymptom(this.options[0]);
-      }else{
-        console.log('sorry, its an error');
+    if (this.options !== undefined){
+      if (this.options.length > 0){
+        if (this.options[0].name.toLowerCase() === input.toLowerCase() ){
+          console.log("it's the same");
+          this.error = false;
+          this._DiagnoseService.addSymptom(this.options[0]);
+        }else{
+          console.log('sorry, its an error');
+          this.error = true;
+        }
+      } else {
+        console.log('Also an error');
         this.error = true;
       }
-    } else {
-      console.log('Also an error');
-      this.error = true;
     }
   }
 
   getMatches(query){
     let matches: Array<any>;
-    this._SearchService.getAutoComplete(query.toLowerCase())
-      .subscribe(
-        data => {
-          matches = this.filterResponse(data)
-        }
-      )
-
+    if(query !== null){
+      this._SearchService.getAutoComplete(query.toLowerCase())
+        .subscribe(
+          data => {
+            matches = this.filterResponse(data)
+          }
+        )
+    }
     return matches;
   }
 

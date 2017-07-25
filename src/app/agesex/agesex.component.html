@@ -1,3 +1,18 @@
-<p>
-  agesex works!
-</p>
+<md-card>
+    <md-card-title>Patient information</md-card-title>
+    <md-card-subtitle>Select age and gender</md-card-subtitle>
+    <md-card-content>
+      <md-input-container class="example-full-width">
+          <input mdInput name="age" [(ngModel)]="chosenAge" type="number" placeholder="Age" (input)="inputUpdate()" required>
+      </md-input-container>
+
+      <md-radio-group name="sex" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>
+          <md-radio-button value="male">
+              Male
+          </md-radio-button>
+          <md-radio-button value="female">
+              Female
+          </md-radio-button>
+      </md-radio-group>
+    </md-card-content>
+</md-card>

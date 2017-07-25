@@ -1,21 +1,22 @@
 <md-card>
-    <md-card-title>New Diagnose</md-card-title>
-    <md-card-subtitle>Select age and gender</md-card-subtitle>
+    <md-card-title>Current Step: {{step}}</md-card-title>
+    <md-card-content *ngIf="!showButtons">
+        <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">START</button>
+    </md-card-content>
 
-    <md-input-container class="example-full-width">
-        <input mdInput type="number" placeholder="Age">
-    </md-input-container>
+    <md-card-content>
 
-    <md-radio-group [(ngModel)]="chosenSex">
-        <md-radio-button value=0>
-            Male
-        </md-radio-button>
-        <md-radio-button value=1>
-            Female
-        </md-radio-button>
-    </md-radio-group>
+        <app-agesex *ngIf="step === 1"></app-agesex>
+        <app-symptoms *ngIf="step === 2"></app-symptoms>
+        <app-questions *ngIf="step === 3"></app-questions>
+        <app-result *ngIf="step === 4"></app-result>
+        <app-feedback *ngIf="step === 5"></app-feedback>
 
-    <md-card-actions>
-    <button md-raised-button color="primary">NEXT</button>
+    </md-card-content>
+    
+    <md-card-actions *ngIf="showButtons">
+        <button md-raised-button color="primary" [disabled]="prevIsDisabled" (click)="_DiagnoseService.previousStep()">PREVIOUS</button>
+        <button md-raised-button color="primary" [disabled]="nextIsDisabled" (click)="_DiagnoseService.nextStep()">NEXT</button>
   </md-card-actions>
 </md-card>
+
