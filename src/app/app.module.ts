@@ -18,7 +18,7 @@ import { MdButtonModule, MaterialModule, MdMenuModule} from '@angular/material';
 
 //Routing
 import { Routing } from "./app.routing";
-
+import { AuthGuard } from "./auth.guard";
 
 //import { Routing } from "./app.routing";
 //Services
@@ -79,7 +79,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     SearchService,
     LoginService,
     AuthService,
-    DiagnoseService
+    DiagnoseService,
+    AuthGuard
     ],
   bootstrap: [AppComponent]
 })
