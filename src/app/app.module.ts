@@ -40,6 +40,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { DiagnoseComponent } from './diagnose/diagnose.component';
 import { ResultComponent } from './result/result.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },
@@ -57,7 +58,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     QuestionsComponent,
     DiagnoseComponent,
     ResultComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    RegistrationComponent
   ],
   imports: [ //imports - allows us to add other modules to this module
     BrowserModule,

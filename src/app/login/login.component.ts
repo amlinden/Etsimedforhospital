@@ -23,6 +23,12 @@ export class LoginComponent implements OnInit {
     // this.auth.getAuthState().subscribe(
     //   (user) => this.user = user);
   }
+  // loginWithEmail() {
+  //   this.auth.signInWithEmailAndPassword(email, password)
+  //   this.router.navigate(['']);
+    
+  // }
+
   loginWithGoogle() {
     this.auth.loginWithGoogle().then((data) => {
     this.router.navigate(['']);

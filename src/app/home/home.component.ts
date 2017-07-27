@@ -29,8 +29,8 @@ export class HomeComponent {
       if (auth == null) {
           console.log("Logged out");
           this.isLoggedIn = false;
-          this.user_displayName = '-';
-          this.user_email = '-';
+          this.user_displayName = '';
+          this.user_email = '';
           this.router.navigate(['login']);
         } else {
           this.isLoggedIn = true;
