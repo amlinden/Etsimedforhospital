@@ -6,11 +6,17 @@ import { NgModule } from '@angular/core';
 import 'hammerjs';
 //firebase
 
+
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import {MdTableModule} from '@angular/material';
+import {DataSource} from '@angular/cdk';  
+import {CdkTableModule} from '@angular/cdk';  
 
 
 //Material
@@ -70,6 +76,8 @@ import { RegistrationComponent } from './registration/registration.component';
     MaterialModule, 
     MdButtonModule,
     MdMenuModule,
+    MdTableModule,
+    CdkTableModule,
     Routing,
     AngularFireModule.initializeApp(environment.firebase, 'etsimed'),// Updated version looks like that
     //AngularFireModule.initializeApp(firebaseConfig), 

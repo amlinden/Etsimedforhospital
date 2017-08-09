@@ -16,6 +16,12 @@ body{
 .mat-card {
   margin-top: 20px;
 }
+
+
+.mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #00acc1
+}
+
 .chip-button {
   border: none;
   height: 100%;
