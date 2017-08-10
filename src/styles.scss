@@ -17,6 +17,15 @@ body{
   margin-top: 20px;
 }
 
+.mat-grid-tile .mat-figure {
+    display: flex;
+    position: absolute;
+    align-items: left !important;
+    justify-content: left !important;
+    height: 100%;
+    padding: 30px !important;
+   
+  }
 
 .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
     background-color: #00acc1

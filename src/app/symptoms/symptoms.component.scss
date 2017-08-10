@@ -1,0 +1,32 @@
+//aligned searchbar - left
+
+.mat-grid-tile .mat-figure {
+    display: flex;
+    position: absolute;
+    align-items: left !important;
+    justify-content: left !important;
+    height: 100%;
+    padding: 30px !important;
+   
+  }
+
+//creating a marging for the symptoms
+  .mat-chip:not(.mat-basic-chip) {
+    display: inline-block;
+    padding: 8px 12px 8px 12px;
+    border-radius: 24px;
+    margin: 8px !important;
+}
+element.style {
+    width: 210px !important;
+    pointer-events: auto;
+    top: 323.938px;
+    left: 86px;
+}
+
+.mat-input-flex {
+    display: inline-flex;
+    align-items: baseline;
+    width: 210px !important;
+}
+
