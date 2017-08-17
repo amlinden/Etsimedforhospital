@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent,
-  },
+  }
 ];
 
 export const Routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -1,7 +1,8 @@
 <md-toolbar color="accent">
-    <span>Etsimo </span>
+    <span>Etsimo</span>
     <div *ngIf="isLoggedIn">
-    <span><h5>{{user_displayName}}</h5></span></div>
+        <span><h5>{{user_displayName}}</h5></span>
+    </div>
      <!--<span>Logged In: {{user_displayName}} ({{user_email}}) </span></div>-->
     <span class="toolbar-spacer"></span>
     <button class="toolbar-icon" md-icon-button [mdMenuTriggerFor]="menu">

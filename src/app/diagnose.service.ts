@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 //Object Typings
 import { Symptom } from "./datatypes/symptom";
