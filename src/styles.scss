@@ -10,9 +10,83 @@ $theme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
 //Theme end
 
+.stepper-container{
+  background: green;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  .stepper-step{
+    background: greenyellow;
+    display: inline-block;
+    padding: 5px;
+    
+    .stepper-dot{
+      display: inline-block;
+      background: gray;
+      padding: 5px;
+      
+    }
+    .stepper-text{
+      display: inline-block;
+      background: salmon;
+      padding: 5px;
+      
+    }
+    .stepper-spacer{
+      display: inline-block;
+      background: skyblue;
+      padding: 5px;
+      
+      .stepper-empty{
+        background: burlywood;
+        padding: 5px;
+        
+      }
+      .stepper-line{
+        border-top: red;
+        border-top-width: 1px;
+        background: lightcyan;
+        padding: 5px;
+        
+      }
+    }
+  }
+}
+
 body{
     font-family: 'Roboto', sans-serif;
 }
+
+.stepper{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .leftCol{
+    vertical-align: top;
+    text-align: center;
+    
+    display: inline-block;
+    
+    .vertLine{
+      height: 100px;
+      background: gray;
+      width: 1px;
+    }
+  }
+  .rightCol{
+    vertical-align: top;
+    
+    display: inline-block;
+    .contentBox{
+
+    }
+    .actions{
+
+    }
+  }
+}
+
 .mat-card {
   margin-top: 20px;
 }

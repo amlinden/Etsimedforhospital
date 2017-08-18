@@ -1,4 +1,66 @@
 <md-card>
+    <md-card-content>
+        <md-button-toggle-group #group="mdButtonToggleGroup">
+            <md-button-toggle value="1">PATIENT</md-button-toggle>
+            <md-button-toggle value="2">SYMPTOMS</md-button-toggle>
+            <md-button-toggle value="3">REFINE</md-button-toggle>
+            <md-button-toggle value="4">DIAGNOSE</md-button-toggle>
+            <md-button-toggle value="5">FEEDBACK</md-button-toggle>
+        </md-button-toggle-group>
+    </md-card-content>
+</md-card>
+<md-card>
+    <md-card-content>
+
+        <div class="stepper-container">container
+            <div class="stepper-step">step
+                <div class="stepper-dot">dot</div>
+                <div class="stepper-text">text</div>
+                <div class="stepper-spacer">spacer
+                    <div class="stepper-empty">empty</div>
+                    <div class="stepper-line">line</div>
+                </div>
+            </div>
+            <div class="stepper-step">step
+                    <div class="stepper-dot">dot</div>
+                    <div class="stepper-text">text</div>
+                    <div class="stepper-spacer">spacer
+                        <div class="stepper-empty">empty</div>
+                        <div class="stepper-line">line</div>
+                    </div>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>
+<md-card>
+    <md-card-content>
+        <div class="stepper">
+            <div class="leftCol">
+                <md-chip-list>
+                    <md-chip>1</md-chip>
+                </md-chip-list>
+                <div class="vertLine">
+                </div>
+            </div>
+            <div class="rightCol">
+                <p>Name of step 1</p>
+                <div class="contentBox" style="background:gray;width:100%;">Content yo</div>
+                <div class="actions">
+                    <button md-raised-button color="primary" [disabled]="prevIsDisabled" (click)="_DiagnoseService.previousStep()">PREVIOUS</button>
+                    <button md-raised-button color="primary" [disabled]="nextIsDisabled" (click)="_DiagnoseService.nextStep()">NEXT</button>                
+                </div>
+            </div>
+        </div>
+
+
+    </md-card-content>
+</md-card>
+<md-progress-bar
+    [color]="primary"
+    [mode]="determinate"
+    [value]="10">
+</md-progress-bar>
+<md-card>
     <md-card-title>Current Step: {{step}}</md-card-title>
     <md-card-content *ngIf="!showButtons">
         <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">START</button>

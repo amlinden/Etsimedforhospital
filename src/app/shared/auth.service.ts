@@ -32,11 +32,11 @@ constructor(public afAuth: AngularFireAuth) {
     this.afAuth.auth.signOut();
   }
 
-   isLoggedin() {
-  if(this.currentUser == null){
-    return false
-  }
-  return true;
+  isLoggedin() {
+    if(this.currentUser == null){
+      return false
+    }
+    return true;
   }
 }
 

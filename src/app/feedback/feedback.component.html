@@ -1,3 +1,18 @@
-<p>
-  feedback works!
-</p>
+<md-card>
+  <md-card-title>Feedback</md-card-title>
+  <md-card-content>
+
+      <p>did the diagnois seem correct?</p>
+      <md-radio-group name="Diagnosis" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>
+          <md-radio-button value="male">
+              Yes
+          </md-radio-button>
+          <md-radio-button value="female">
+              No
+          </md-radio-button>
+      </md-radio-group>
+    <md-input-container style="width:100%;">
+        <textarea mdInput minrows="10" name="Comment" [(ngModel)]="chosenAge" type="Text" placeholder="Comment" (input)="inputUpdate()"></textarea>
+    </md-input-container>
+  </md-card-content>
+</md-card>

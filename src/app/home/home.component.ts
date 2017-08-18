@@ -24,6 +24,7 @@ export class HomeComponent {
   private user_email: String;
     //user = null;
   constructor(public auth: AuthService, public db: AngularFireDatabase, private router:Router) {  
+    /*
     this.auth.getAuthState().subscribe(
     (auth) => {
       if (auth == null) {
@@ -42,11 +43,12 @@ export class HomeComponent {
         }
       }
     );
+    */
     }
 
   
 
-  
+  /*
   logout() {
   
     this.auth.logout();
@@ -54,6 +56,7 @@ export class HomeComponent {
     this.user_email = '';
     this.router.navigate(['login']);
   }
+  */
   //do we need get aut?
   
 

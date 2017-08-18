@@ -13,8 +13,18 @@ export class DiagnoseComponent implements OnInit {
   prevIsDisabled: boolean;
   nextIsDisabled: boolean;
 
-  constructor(private _DiagnoseService:DiagnoseService) { 
+  //Titles:
+  titles: Array<String>;
 
+  constructor(private _DiagnoseService:DiagnoseService) {
+     /*
+      this.titles.push("New Diagnose"); //0
+      this.titles.push("Age & Sex"); //1
+      this.titles.push("Symptoms"); //2
+      this.titles.push("Follow up questions"); //3
+      this.titles.push(""); //4
+      this.titles.push(""); //5
+      */
     this._DiagnoseService.currentStepObservable.subscribe( r =>  {
       this.step = r;
       this.enableDisableButtons();
