@@ -1,5 +1,6 @@
 <md-card>
     <md-card-title>Current Step: {{step}}</md-card-title>
+    <!--HÄR GÅR BREDCRUMBS-->
     <md-card-content *ngIf="!showButtons">
         <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">START</button>
     </md-card-content>

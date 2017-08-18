@@ -11,7 +11,7 @@ import { RegistrationComponent } from './registration/registration.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
