@@ -39,7 +39,7 @@ export class HomeComponent {
           this.user_email = auth.email;
           console.log("Logged in");
           console.log(auth);
-          this.router.navigate(['']);
+          this.router.navigate(['/home']);
         }
       }
     );

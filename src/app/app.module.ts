@@ -21,6 +21,7 @@ import {CdkTableModule} from '@angular/cdk';
 
 //Material
 import { MdButtonModule, MaterialModule, MdMenuModule} from '@angular/material';
+import {MaterialChipsModule} from 'angular2-material-chips';
 
 //Routing
 import { Routing } from "./app.routing";
@@ -76,6 +77,7 @@ import { DevComponent } from './dev/dev.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule, 
+    MaterialChipsModule, 
     MdButtonModule,
     MdMenuModule,
     MdTableModule,

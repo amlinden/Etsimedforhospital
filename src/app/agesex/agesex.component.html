@@ -5,7 +5,8 @@
       <md-input-container class="example-full-width">
           <input mdInput name="age" [(ngModel)]="chosenAge" type="number" placeholder="Age" (input)="inputUpdate()" required>
       </md-input-container>
-
+    </md-card-content>
+    <md-card-content>
       <md-radio-group name="sex" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>
           <md-radio-button value="male">
               Male
