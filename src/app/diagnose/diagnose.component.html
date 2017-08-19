@@ -1,3 +1,4 @@
+<!--
 <md-card>
     <md-card-content>
         <md-button-toggle-group #group="mdButtonToggleGroup">
@@ -9,6 +10,8 @@
         </md-button-toggle-group>
     </md-card-content>
 </md-card>
+-->
+<!--
 <md-card>
     <md-card-content>
 
@@ -32,6 +35,7 @@
         </div>
     </md-card-content>
 </md-card>
+
 <md-card>
     <md-card-content>
         <div class="stepper">
@@ -55,13 +59,14 @@
 
     </md-card-content>
 </md-card>
+-->
 <md-progress-bar
     [color]="primary"
     [mode]="determinate"
     [value]="10">
 </md-progress-bar>
 <md-card>
-    <md-card-title>Current Step: {{step}}</md-card-title>
+    <md-card-title>{{titles[step]}}</md-card-title>
     <!--HÄR GÅR BREDCRUMBS-->
     <md-card-content *ngIf="!showButtons">
         <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">START</button>

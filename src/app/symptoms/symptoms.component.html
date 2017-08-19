@@ -1,5 +1,33 @@
 <md-card >
     <!--<md-card-title>Symptoms</md-card-title>-->
+<div class="sy-container">
+    <div class="sy-search">
+        <md-input-container class="sy-input">
+            <input mdInput placeholder="Search symptoms" #stuff type="text" [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
+            <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
+                Can't find symptom!    
+            </md-hint>
+        </md-input-container>
+
+        <md-autocomplete #auto="mdAutocomplete">
+                <md-option *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)="addSymptom(option)">
+                    {{ option.name }}
+                </md-option>
+        </md-autocomplete>
+
+    </div>
+    <div class="sy-selection">
+        <md-list class="sy-list">
+            <md-list-item class="svartkant" *ngFor="let symptom of symptoms" >
+                <p md-line wrap="hard"> {{symptom.name}} </p>
+                <h3 md-line>Title 1</h3>
+                <md-card-actions><md-icon class="chip-icon" (click)="_DiagnoseService.removeSymptom(symptom)" style="cursor: pointer;">close</md-icon></md-card-actions>
+                <md-divider></md-divider>
+            </md-list-item>    
+        </md-list>    
+    </div>
+</div>
+<!--
     <md-grid-list cols="3" rowHeight="1:1">
         <md-grid-tile style='background: rgba(179,213,230, 0.14)'>
             <div>
@@ -7,7 +35,7 @@
                     <md-input-container>
                         <input  placeholder="Search symptoms" #stuff type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
                         <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
-                            Maybe you're a hypochondriac
+                            Can't find symptom!    
                         </md-hint>
                     </md-input-container>
 
@@ -33,11 +61,11 @@
         </md-grid-tile>
      
              
-                    <!--<md-card style="width:90%;" *ngFor="let symptom of symptoms">
+                    <md-card style="width:90%;" *ngFor="let symptom of symptoms">
                     <p md-line> {{symptom.name}} </p>
                     <h3 md-line>Title 1</h3>
-                    <md-card-actions><md-icon class="chip-icon" (click)="_DiagnoseService.removeSymptom(symptom)" style="cursor: pointer;">close</md-icon></md-card-actions>-->
-    </md-grid-list>
+                    <md-card-actions><md-icon class="chip-icon" (click)="_DiagnoseService.removeSymptom(symptom)" style="cursor: pointer;">close</md-icon></md-card-actions>
+    </md-grid-list> -->
 </md-card>
 
       <!--<md-chip-list>

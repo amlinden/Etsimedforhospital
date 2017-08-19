@@ -3,7 +3,6 @@ import { FormControl } from  '@angular/forms';
 import { SearchService } from "../search.service";
 import { Observable, Subject } from 'rxjs';
 import { DiagnoseService } from '../diagnose.service';
-import {MaterialChipsModule} from 'angular2-material-chips';
 
 @Component({
   selector: 'app-symptoms',
@@ -55,6 +54,7 @@ export class SymptomsComponent implements OnInit {
   }
 
   compareInput(input){
+    console.log("hello input");
     if (this.options !== undefined){
       if (this.options.length > 0){
         if (this.options[0].name.toLowerCase() === input.toLowerCase() ){

@@ -16,14 +16,48 @@ $theme: mat-light-theme($primary, $accent, $warn);
   box-sizing: $type;
 }
 @mixin boxShadow() {
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(71,71,71,0.25);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(71,71,71,0.25);
-    box-shadow: 0px 2px 5px 0px rgba(71,71,71,0.25);
+
+    -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    -moz-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 .svartkant{
   border-radius: 3px;
   border-color: black;
   @include boxShadow();
+}
+//Symptoms containers
+.sy-container{
+  height: 500px;
+  display: flex;
+
+  .sy-search{
+    width: 70%;
+    background: rgba(179,213,230, 0.14);
+    align-items: stretch;
+    display: inline-block;
+    padding:10px;
+    .sy-input{
+      width: 100%;
+    }
+    
+  }
+  .sy-selection{
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: 1px #EEEEEE solid;
+    width: 40%;
+    align-items: stretch;
+    display: inline-block;
+    .sy-list{
+      padding-top: 0px;
+    }
+  }
+}
+
+//Feedback
+.feedback{
+  background: rgba(179,213,230, 0.14);
 }
 
 
