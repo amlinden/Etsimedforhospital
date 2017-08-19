@@ -60,11 +60,11 @@
     </md-card-content>
 </md-card>
 -->
-<md-progress-bar
+<!--<md-progress-bar
     [color]="primary"
     [mode]="determinate"
     [value]="10">
-</md-progress-bar>
+</md-progress-bar>-->
 <md-card>
     <md-card-title>{{titles[step]}}</md-card-title>
     <!--HÄR GÅR BREDCRUMBS-->
@@ -83,8 +83,8 @@
     </md-card-content>
     
     <md-card-actions *ngIf="showButtons">
-        <button md-raised-button color="primary" [disabled]="prevIsDisabled" (click)="_DiagnoseService.previousStep()">PREVIOUS</button>
+        <button md-raised-button color="accent" [disabled]="prevIsDisabled" (click)="_DiagnoseService.previousStep()">PREVIOUS</button>
         <button md-raised-button color="primary" [disabled]="nextIsDisabled" (click)="_DiagnoseService.nextStep()">NEXT</button>
-  </md-card-actions>
+    </md-card-actions>
 </md-card>
 

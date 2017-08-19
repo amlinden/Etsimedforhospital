@@ -26,7 +26,26 @@ $theme: mat-light-theme($primary, $accent, $warn);
   border-color: black;
   @include boxShadow();
 }
-//Symptoms containers
+//Symptoms
+//Autocomplete
+
+.ac-item{
+  display: flex;
+  justify-content: space-between;
+  .ac-left{
+    //
+  }
+  .ac-right{
+    display: none;
+    color: #0277BD;
+  }
+  &:hover{
+    .ac-right{
+      display: inline;
+    }
+  }
+}
+//containers
 .sy-container{
   height: 500px;
   display: flex;
@@ -43,6 +62,7 @@ $theme: mat-light-theme($primary, $accent, $warn);
     
   }
   .sy-selection{
+    overflow-y: scroll;
     padding-left: 10px;
     margin-left: 10px;
     border-left: 1px #EEEEEE solid;

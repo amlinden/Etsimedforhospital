@@ -1,34 +1,21 @@
-<div class="example-container mat-elevation-z8">
-  <md-table #table [dataSource]="dataSource">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="diseaseId">
-      <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
-    </ng-container>
-
-    <!-- Progress Column -->
-    <ng-container cdkColumnDef="probability">
-      <md-header-cell *cdkHeaderCellDef> Probability </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.probability}}% </md-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="userName">
-      <md-header-cell *cdkHeaderCellDef> Disease </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
-    </ng-container>
-
-    <!-- in case another column is neededColumn -->
-    <!--<ng-container cdkColumnDef="color">
-      <md-header-cell *cdkHeaderCellDef>Color</md-header-cell>
-      <md-cell *cdkCellDef="let row" [style.color]="row.color"> {{row.color}} </md-cell>
-    </ng-container>-->
-
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
-</div>
+<h2 class="mat-h2">Patient info</h2>
+<md-card>
+  <md-card-content>
+      <p>Sex: Female</p>
+      <p>Age: 19</p>
+    <md-list>
+      <md-list-item>Symptom1</md-list-item>
+      <md-list-item>Symptom2</md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
+<h2 class="mat-h2">Diseases</h2>
+<md-accordion displayMode="flat">
+  <md-expansion-panel *ngFor="let disease of diseases; let i = index">
+    <md-expansion-panel-header>
+      <mat-panel-title style="width:20%;">{{disease}}</mat-panel-title>
+      <mat-panel-description>50%</mat-panel-description>
+    </md-expansion-panel-header>
+      This is more information about the disease
+  </md-expansion-panel>
+</md-accordion>

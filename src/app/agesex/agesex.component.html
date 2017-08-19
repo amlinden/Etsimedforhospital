@@ -3,7 +3,7 @@
     <md-card-subtitle>Select age and gender</md-card-subtitle>
     <md-card-content>
       <md-input-container class="example-full-width">
-          <input mdInput name="age" [(ngModel)]="chosenAge" type="number" placeholder="Age" (input)="inputUpdate()" required>
+          <input style="font-size:18px;" mdInput name="age" min="0" max="130" [(ngModel)]="chosenAge" type="number" placeholder="Age" (input)="inputUpdate()" required>
       </md-input-container>
     </md-card-content>
     <md-card-content>

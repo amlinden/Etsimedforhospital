@@ -19,7 +19,11 @@ export class ResultComponent implements OnInit {
   displayedColumns = ['diseaseId', 'userName', 'probability'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
-
+  diseases = ['Abdominal distention', 'Abdominal pain', 'Abnormal appearing skin', 'Abnormal appetite', 'Fever'];
+  constructor(){
+    
+    
+  }
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
   }
