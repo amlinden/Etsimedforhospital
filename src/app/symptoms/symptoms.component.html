@@ -3,9 +3,9 @@
 <div class="sy-container">
     <div class="sy-search">
         <md-input-container class="sy-input">
-            <input mdInput placeholder="Search symptoms" #stuff type="text" [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
+            <input mdInput placeholder="{{text.symptoms.placeholder}}" #stuff type="text" [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
             <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
-                Can't find symptom!    
+                {{text.symptoms.symptomnotfound}}! 
             </md-hint>
         </md-input-container>
 
