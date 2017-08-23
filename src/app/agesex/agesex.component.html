@@ -1,18 +1,21 @@
 <md-card>
-    <md-card-title>Patient information</md-card-title>
-    <md-card-subtitle>Select age and gender</md-card-subtitle>
+    <md-card-title>Patient information {{text.agesex.heading}}</md-card-title>
+    <md-card-subtitle>Select age and gender {{text.agesex.subheading}}</md-card-subtitle>
     <md-card-content>
       <md-input-container class="example-full-width">
           <input style="font-size:18px;" mdInput name="age" min="0" max="130" [(ngModel)]="chosenAge" type="number" placeholder="Age" (input)="inputUpdate()" required>
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+              <div [hidden]="!email.hasError('required')">Email is required {{text.agesex.email}}</div>
+          </div>
       </md-input-container>
     </md-card-content>
     <md-card-content>
       <md-radio-group name="sex" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>
           <md-radio-button value="male">
-              Male
+              Male {{text.agesex.male}}
           </md-radio-button>
           <md-radio-button value="female">
-              Female
+              Female {{text.agesex.female}}
           </md-radio-button>
       </md-radio-group>
     </md-card-content>
