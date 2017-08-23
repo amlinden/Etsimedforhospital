@@ -49,7 +49,7 @@ export class ExampleDatabase {
   get data(): DiseaseData[] { return this.dataChange.value; }
 
   constructor() {
-    // Fill up the database with max 5.
+    // Fill up the database with max 4.
     for (let i = 0; i < 5; i++) { this.addDisease(); }
   }
 
