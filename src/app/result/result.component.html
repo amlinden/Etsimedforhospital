@@ -13,9 +13,16 @@
 <md-accordion displayMode="flat">
   <md-expansion-panel *ngFor="let disease of diseases; let i = index">
     <md-expansion-panel-header>
-      <span><md-checkbox class="example-margin"><mat-panel-title style="width:50%;">{{disease}}</mat-panel-title></md-checkbox></span>
+      <mat-panel-title style="width:30%;"><md-checkbox>{{disease}}</md-checkbox></mat-panel-title>
       <mat-panel-description></mat-panel-description>
     </md-expansion-panel-header>
       <p>This is more information about the disease</p>
+  </md-expansion-panel>
+  <md-expansion-panel>
+    <md-expansion-panel-header>
+      <mat-panel-title style="width:30%;"><md-checkbox>None of the above</md-checkbox></mat-panel-title>
+      <mat-panel-description></mat-panel-description>
+    </md-expansion-panel-header>
+      <p>Select this option if none of the diseases "apply" on the symptoms</p>
   </md-expansion-panel>
 </md-accordion>
