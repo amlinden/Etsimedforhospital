@@ -15,25 +15,49 @@ import 'rxjs/add/operator/map';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
+
 export class ResultComponent implements OnInit {
   displayedColumns = ['diseaseId', 'userName', 'probability'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
-  diseases = ['Abdominal distention', 'Abdominal pain', 'Abnormal appearing skin', 'Abnormal appetite', 'Fever'];
+  
+  //selected diseases are stored in selectedvalue
+  selectedValue = [];
+  diseases = [
+    {diseasetype:'Abdominal distention'}, 
+    {diseasetype:'Abdominal pain'}, 
+    {diseasetype:'Abnormal appearing skin'}, 
+    {diseasetype:'Abnormal appetite'}, 
+    {diseasetype:'Fever'}
+  ];  
+  
+  change(e, type){
+    console.log(e.checked);
+    console.log(type);
+    
+    if(e.checked){
+      //puch only type to get the whole object (now only the name of disease)
+      this.selectedValue.push(type.diseasetype);
+    }
+    else{
+     let updateItem = this.selectedValue.find(this.findIndexToUpdate, type.diseasetype);
+     let index = this.selectedValue.indexOf(updateItem);
+     this.selectedValue.splice(index, 1);
+    }
+  }
+  findIndexToUpdate(type) { 
+        return type.diseasetype === this;
+    }
+
+
   constructor(){
-    
-    
   }
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
   }
 }
-
-
-/** Constants used to fill up our data base. */
-// const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-//   'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
 const NAMES = ['Abdominal distention', 'Abdominal pain', 'Abnormal appearing skin', 'Abnormal appetite', 'Fever'];
+// selected diseases
 
 export interface DiseaseData {
   id: string;
