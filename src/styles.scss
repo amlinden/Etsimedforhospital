@@ -26,11 +26,14 @@ $theme: mat-light-theme($primary, $accent, $warn);
   border-color: black;
   @include boxShadow();
 }
+//result list
+.mat-expansion-panel-header-title {
+    margin-left: 14px !important;
+}
+
 //Symptoms
 //Autocomplete
-.example-margin {
-  margin: 0 10px !important;
-}
+
 .ac-item{
   display: flex;
   justify-content: space-between;
