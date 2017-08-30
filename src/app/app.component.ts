@@ -10,7 +10,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
 import * as firebase from 'firebase/app';
-
+import { TranslateService } from './translate.service';
 
 @Component({
   selector: 'app-root',
@@ -25,10 +25,11 @@ export class AppComponent {
     private user_displayName: String;
     private user_email: String;
     
-    constructor(private auth: AuthService, public db: AngularFireDatabase, private router:Router) {  }
+    constructor(private _Auth: AuthService, public db: AngularFireDatabase, private router:Router,
+    private _TranslateService: TranslateService) {  }
   
     ngOnInit() {
-      this.auth.getAuthState().subscribe (
+      this._Auth.getAuthState().subscribe (
         (user)=> this.user = user);
         this.isLoggedIn = true;
     //       this.user_displayName = auth.displayName;
@@ -36,11 +37,13 @@ export class AppComponent {
     //       console.log("Logged in");
     //       console.log(auth);
     //       this.router.navigate(['']);
+
+      //Language service initialization 
+      this._TranslateService.setLanguage(0);
     }
 
-  
     logout() {
-      this.auth.logout();
+      this._Auth.logout();
       this.user_displayName = '';
       this.user_email = '';
       this.router.navigate(['login']);

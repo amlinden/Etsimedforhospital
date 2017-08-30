@@ -5,10 +5,13 @@ import { Routing } from "../app.routing";
 //saknas med aouth? - JA lägger till under
 //import { AuthService } from '../providers/auth.service';
 import { AuthService } from '../shared/auth.service';
+import { TranslateService } from '../translate.service';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
+import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
 
@@ -18,12 +21,21 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  private text: Object;
   private isLoggedIn: Boolean;
   private user_displayName: String;
   private user_email: String;
     //user = null;
-  constructor(public auth: AuthService, public db: AngularFireDatabase, private router:Router) {  
+  constructor(
+    public auth: AuthService, 
+    public db: AngularFireDatabase, 
+    private router:Router,
+    private _TranslateService: TranslateService
+    ){
+      this._TranslateService.langObservable.subscribe(
+        data => this.text = data
+      );
+    
     /*
     this.auth.getAuthState().subscribe(
     (auth) => {
@@ -59,7 +71,9 @@ export class HomeComponent {
   */
   //do we need get aut?
   
+  ngOnInit(){
+
+  }
 
   
 }
-

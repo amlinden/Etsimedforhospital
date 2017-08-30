@@ -1,0 +1,10 @@
+{
+    "agesex": {
+        "heading": "Patient information",
+        "subheading": "Agesex"
+    },
+    "home":{
+        "account": "Account Setting"
+    },
+    "example2": "some more inapp text"
+}

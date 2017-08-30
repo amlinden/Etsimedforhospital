@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiagnoseService } from '../diagnose.service';
 import {FormControl, Validators} from '@angular/forms';
+import { TranslateService } from '../translate.service';
 
 @Component({
   selector: 'app-agesex',

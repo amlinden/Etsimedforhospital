@@ -3,6 +3,7 @@ import { FormControl } from  '@angular/forms';
 import { SearchService } from "../search.service";
 import { Observable, Subject } from 'rxjs';
 import { DiagnoseService } from '../diagnose.service';
+import { TranslateService } from '../translate.service';
 
 @Component({
   selector: 'app-symptoms',

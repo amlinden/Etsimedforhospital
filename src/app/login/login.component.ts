@@ -8,7 +8,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
 import * as firebase from 'firebase/app';
-
+import { TranslateService } from '../translate.service';
 
 @Component({
   selector: 'app-login',

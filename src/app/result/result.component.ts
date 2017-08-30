@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DataSource} from '@angular/cdk';  
 import {CdkTableModule} from '@angular/cdk';  
 import {MdTableModule} from '@angular/material';
-
+import { TranslateService } from '../translate.service';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';

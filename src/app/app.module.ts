@@ -31,6 +31,7 @@ import { AuthGuard } from "./auth.guard";
 import { SearchService } from "./search.service";
 import { LoginService } from "./login.service";
 import { DiagnoseService } from "./diagnose.service";
+import { TranslateService } from "./translate.service";
 
 //import { AuthService } from './providers/auth.service';
 import { AuthService } from './shared/auth.service';
@@ -92,7 +93,8 @@ import { DevComponent } from './dev/dev.component';
     LoginService,
     AuthService,
     DiagnoseService,
-    AuthGuard
+    AuthGuard,
+    TranslateService
     ],
   bootstrap: [AppComponent]
 })

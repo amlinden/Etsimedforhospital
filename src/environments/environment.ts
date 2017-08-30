@@ -12,6 +12,9 @@ export const environment = {
     projectId: "etsimed",
     storageBucket: "",
     messagingSenderId: "76136990116"
+  },
+  translation: {
+    url: "assets/languages/"
   }
 };
 
