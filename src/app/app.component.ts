@@ -25,13 +25,19 @@ export class AppComponent {
     private user_displayName: String;
     private user_email: String;
     
-    constructor(private _Auth: AuthService, public db: AngularFireDatabase, private router:Router,
-    private _TranslateService: TranslateService) {  }
+    constructor(
+      private _Auth: AuthService, 
+      public db: AngularFireDatabase, 
+      private router:Router,
+      private _TranslateService: TranslateService
+    ){
+
+    }
   
     ngOnInit() {
-      this._Auth.getAuthState().subscribe (
-        (user)=> this.user = user);
-        this.isLoggedIn = true;
+      //this._Auth.getAuthState().subscribe (
+      //  (user)=> this.user = user);
+      //  this.isLoggedIn = true;
     //       this.user_displayName = auth.displayName;
     //       this.user_email = auth.email;
     //       console.log("Logged in");

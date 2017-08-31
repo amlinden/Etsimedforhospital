@@ -32,6 +32,7 @@ export class TranslateService {
 
     this.lang = new BehaviorSubject( this.getLanguage() );
     this.langObservable = this.lang.asObservable();
+
   }
 
   /**
@@ -40,7 +41,9 @@ export class TranslateService {
   */
   private getLanguage() {
     return this.http.request( this.url+this.langArray[this.setting] )
-              .map(res => res.json())
+              .map(res =>
+                res.json()
+              )
   }
 
   /**
@@ -49,9 +52,7 @@ export class TranslateService {
   */
   setLanguage(setting){
     this.setting = setting;
-    this.lang.next(
-      this.getLanguage()
-    )
+    this.getLanguage().subscribe( res => this.lang.next(res))
   }
 
 }
