@@ -1,20 +1,20 @@
 <md-card>
-    <md-card-title>{{text.agesex.heading}}</md-card-title>
-    <md-card-subtitle>{{text.agesex.subheading}}</md-card-subtitle>
+    <!--<md-card-title>{{agesex?.heading}}</md-card-title>
+    <md-card-subtitle>{{agesex?.subheading}}</md-card-subtitle>-->
+    <md-card-title>bla</md-card-title>
+    <md-card-subtitle>bla</md-card-subtitle>
     <md-card-content>
       <md-input-container class="example-full-width">
           <input style="font-size:18px;" mdInput required maxlength="4" name="age" min="0" [(ngModel)]="chosenAge" type="number" placeholder="0" (input)="inputUpdate()" required>
       </md-input-container>
     </md-card-content>
     <md-card-content>
-      <md-radio-group name="sex" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>
-          <md-radio-button value="male">
-              male
-          </md-radio-button>
-          <md-radio-button value="female">
-              female
-          </md-radio-button>
-      </md-radio-group>
+      <md-radio-group name="Sex" [(ngModel)]="selectedSex" required>
+        <md-radio-button class="example-radio-button" *ngFor="let i of sex" [value]="i">
+            {{i}}
+        </md-radio-button>
+    </md-radio-group>
+    <div class="example-selected-value">Selected sex: {{selectedSex}}</div>
     </md-card-content>
 </md-card>
 

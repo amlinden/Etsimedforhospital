@@ -1,5 +1,17 @@
 <md-card>
     <!--<md-card-title>Questions</md-card-title>-->
+    
+    <md-card-subtitle>Was the call about self repported sick leave?</md-card-subtitle>
+    <md-radio-group name="Sickleave" [(ngModel)]="selectedSickleave" required>
+        <md-radio-button class="example-radio-button" *ngFor="let i of sickleave" [value]="i">
+            {{i}}
+        </md-radio-button>
+    </md-radio-group>
+    <div class="example-selected-value">Sickleave: {{selectedSickleave}}</div>
+    <p> </p>
+    <p> </p>
+    
+    <!--Needs to be changed for several questions from database-->
     <md-card-subtitle>Have you been in Asia the last month?</md-card-subtitle>
     <md-card-content>
       <md-radio-group name="sex" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>

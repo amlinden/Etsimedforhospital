@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+
 @Injectable()
 export class TranslateService {
   
@@ -19,6 +20,8 @@ export class TranslateService {
   //Observable that components subscribe to
   private lang: BehaviorSubject<Object>;
   public langObservable: Observable<Object>;
+
+
 
   constructor( private http: Http ) {
 

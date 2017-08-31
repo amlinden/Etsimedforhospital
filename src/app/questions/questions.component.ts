@@ -7,7 +7,12 @@ import { TranslateService } from '../translate.service';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
+  selectedSickleave: string;
 
+  sickleave = [
+    'Yes',
+    'No',
+  ];
   constructor() { }
 
   ngOnInit() {

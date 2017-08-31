@@ -10,6 +10,8 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 
+//import {AgesexComponent} from '../agesex;
+
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',

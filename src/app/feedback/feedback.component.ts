@@ -7,10 +7,26 @@ import { TranslateService } from '../translate.service';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
+ selectedAccuracy: string;
 
+  yesno = [
+    'Yes',
+    'No',
+  ];
+
+  selectedTreatment: string;
+
+  treatments = [
+    'No treatment',
+    'Nurse',
+    'Nurse for occupational health',
+    'Doctor',
+  ];
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+
+

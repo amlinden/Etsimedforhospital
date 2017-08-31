@@ -30,9 +30,19 @@ $theme: mat-light-theme($primary, $accent, $warn);
 .mat-expansion-panel-header-title {
     margin-left: 14px !important;
 }
+//radiobutton in feedback
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
 
-//Symptoms
-//Autocomplete
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
 
 .ac-item{
   display: flex;

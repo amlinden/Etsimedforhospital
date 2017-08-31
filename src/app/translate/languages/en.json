@@ -1,10 +1,10 @@
 {
-    "agesex": {
+    "agesex": [{
         "heading": "Patient information ",
-        "subheading": "Select age and gender ",
+        "subheading": "Select age and sex ",
         "placeholder": "Age",
         "male": "Male" ,
         "female": "Female" 
-    },
+    }],
     "example2": "some more inapp text"
 }

@@ -1,19 +1,26 @@
 <md-card class="feedback">
   <md-card-content>
-      <p>Did the diagnosis seem correct?</p>
-      <md-radio-group name="Diagnosis" [(ngModel)]="chosenSex" (change)="inputUpdate()" required>
-          <md-radio-button value="male">
-              Yes
-          </md-radio-button>
-          <md-radio-button value="female">
-              No
-          </md-radio-button>
+      <md-card-subtitle>Did the diagnosis seem correct?</md-card-subtitle>
+      <md-radio-group name="Diagnosis" [(ngModel)]="selectedAccuracy" required>
+          <md-radio-button class="example-radio-button" *ngFor="let i of yesno" [value]="i">
+                {{i}}
+            </md-radio-button>
       </md-radio-group>
+      <div class="example-selected-value">Correct diagnosis: {{selectedAccuracy}}</div>
      <p> </p>
     <md-input-container style="width:100%;">
         <textarea mdTextareaAutosize mdInput minRows="3" name="Comment" [(ngModel)]="chosenAge" type="Text" placeholder="Comment" (input)="inputUpdate()"></textarea>
     <md-hint align="start"><strong>Don't disclose personal info that relates to a specific patient or information that could be used to identify the patient.</strong> </md-hint>
     </md-input-container>
+    <p> </p>
+     <md-card-subtitle>Suggest the next step</md-card-subtitle>
+      <md-radio-group name="Diagnosis" [(ngModel)]="selectedTreatment" required>
+          <md-radio-button class="example-radio-button" *ngFor="let treatment of treatments" [value]="treatment">
+                {{treatment}}
+          </md-radio-button>
+      </md-radio-group>
+      <div class="example-selected-value">Your choice is: {{selectedTreatment}}</div>
+     <p> </p>
     
   </md-card-content>
 </md-card>

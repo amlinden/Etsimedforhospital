@@ -8,31 +8,35 @@ import { TranslateService } from '../translate.service';
   templateUrl: './agesex.component.html',
   styleUrls: ['./agesex.component.scss']
 })
+
+
 export class AgesexComponent implements OnInit {
-  chosenSex: string = "";
+  selectedSex: string;
+
+  sex= [
+    'Male',
+    'Female',
+  ];
+  
+
   chosenAge: number = 0;
 
   constructor(private _DiagnoseService: DiagnoseService) { }
 
- 
+    
   
   inputUpdate() {
-    this._DiagnoseService.updatePatientInfo(this.chosenAge, this.chosenSex);
-    console.log(this.chosenAge, this.chosenSex);
+    this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
+    console.log(this.chosenAge);
   }
 
 
 
   ngOnInit() {
   }
-  }
-  const age_REGEX = /\d{4}/;
-  export class InputErrors {
-    value = 115;
-    ageFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(age_REGEX)]);
 
 }
+
+
 
 
