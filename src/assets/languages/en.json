@@ -1,10 +1,47 @@
 {
+    
     "agesex": {
         "heading": "Patient information",
-        "subheading": "Agesex"
+        "subheading": "Enter patient information",
+        "age": "Age",
+        "male": "Male",
+        "female": "Female"
     },
     "home":{
-        "account": "Account Setting"
+        "account": "Account Settings",
+        "logout": "Log out"
     },
-    "example2": "some more inapp text"
+    "start":{
+        "start": "START",
+        "back": "BACK",
+        "next": "NEXT"
+    },
+     "symptoms":{
+        "placeholder": "Search symptoms",
+        "symptomnotfound": "Can't find symptom! ",
+        "add": "Add symptom",
+        "symptom": "Symptom"
+    },
+    "titles": ["New Diagnose","Patient information", "Symptoms",
+        "Follow-up questions",
+        "Result",
+        "Feedback"]
+    ,
+    "questions":{
+        "yes": "Yes",
+        "no": "No"
+    },
+    "feedback":{
+        "accuracy": "Did the diagnosis seem correct?",
+        "yes": "Yes",
+        "no": "No",
+        "symptomnotfound": "Can't find symptom! ",
+        "personalinfo": "Don't disclose personal info that relates to a specific patient or information that could be used to identify the patient.",
+        "nextstep": "Suggest the next step",
+        "notreatment": "No treatment",
+        "nurse":"Nurse",
+        "nurseoh": "Nurse for occupational health",
+        "doctor": "Doctor"
+    }
+    
 }

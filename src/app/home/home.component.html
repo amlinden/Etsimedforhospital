@@ -3,7 +3,6 @@
     <div *ngIf="isLoggedIn">
         <span><h5>{{user_displayName}}</h5></span>
     </div>
-     <!--<span>Logged In: {{user_displayName}} ({{user_email}}) </span></div>-->
     <span class="toolbar-spacer"></span>
     <button class="toolbar-icon" md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon>more_vert</md-icon>
@@ -15,11 +14,9 @@
         </button>
         <button (click)="logout()" md-menu-item>
             <md-icon>rowing</md-icon>
-            <span>Log out</span>
+            <span>{{text?.home?.logout}}</span>
         </button>
     </md-menu>
 </md-toolbar>
-
-
 <app-diagnose></app-diagnose>
 <!--<app-login></app-login>-->

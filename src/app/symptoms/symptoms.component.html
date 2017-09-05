@@ -3,16 +3,16 @@
 <div class="sy-container">
     <div class="sy-search">
         <md-input-container class="sy-input">
-            <input mdInput placeholder="{{text.symptoms.placeholder}}" #stuff type="text" [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
+            <input mdInput placeholder="{{text?.symptoms?.placeholder}}" #stuff type="text" [formControl]="myControl" [mdAutocomplete]="auto" (keyup.enter)="compareInput(stuff.value)">
             <md-hint *ngIf="error" [ngStyle]="{'color': 's'}" align="start">
-                {{text.symptoms.symptomnotfound}}! 
+                {{text?.symptoms?.symptomnotfound}}! 
             </md-hint>
         </md-input-container>
 
         <md-autocomplete class="ac-parent" #auto="mdAutocomplete">
                 <md-option class="ac-item" *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)="addSymptom(option)">
                     <span class="ac-left">{{ option.name }}</span>
-                    <span class="ac-right">Add symptom</span>
+                    <span class="ac-right">{{text?.symptoms?.add}}</span>
                 </md-option>
         </md-autocomplete>
 
@@ -21,7 +21,7 @@
         <md-list class="sy-list" *ngFor="let symptom of symptoms">
             <md-list-item class="svartkant">
                 <p md-line> {{symptom.name}}</p>
-                <p md-line style="color: #0277BD">Symptom</p>
+                <p md-line style="color: #0277BD">{{text?.symptoms?.symptom}}</p>
                 <md-card-actions>
                     <md-icon class="chip-icon" (click)="_DiagnoseService.removeSymptom(symptom)" style="cursor: pointer;">close</md-icon>
                 </md-card-actions>

@@ -1,0 +1,39 @@
+{
+    "agesex": {
+        "heading": "Patient information",
+        "subheading": "Vad ha här",
+        "age": "Age",
+        "male": "Male",
+        "female": "Female"
+    },
+
+    "home":{
+        "account": "Account Settings",
+        "logout": "Log out"
+    },
+
+    "start":{
+        "start": "START",
+        "back": "BACK",
+        "next": "NEXT"
+    },
+     "symptoms":{
+        "placeholder": "Search symptoms",
+        "symptomnotfound": "Can't find symptom! ",
+        "add": "Add symptom",
+        "symptom": "Symptom"
+    },
+    "questions":{
+        "placeholder": "Search symptoms",
+        "symptomnotfound": "Can't find symptom! ",
+        "add": "Add symptom",
+        "symptom": "Symptom"
+    },
+    "feedback":{
+        "accuracy": "Did the diagnosis seem correct?",
+        "symptomnotfound": "Can't find symptom! ",
+        "personalinfo": "Don't disclose personal info that relates to a specific patient or information that could be used to identify the patient.",
+        "nextstep": "Suggest the next step"
+    }
+    
+}

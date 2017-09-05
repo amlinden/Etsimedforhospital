@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiagnoseService } from '../diagnose.service';
 import {FormControl, Validators} from '@angular/forms';
-import { TranslateService } from '../translate.service';
+import {TranslateService } from '../translate.service';
 
 @Component({
   selector: 'app-agesex',
@@ -12,22 +12,24 @@ import { TranslateService } from '../translate.service';
 
 export class AgesexComponent implements OnInit {
   selectedSex: string;
-
-  sex= [
-    'Male',
-    'Female',
-  ];
-  
-
+  private text: Object;
+  sex: Array<any> = [];
   chosenAge: number = 0;
 
-  constructor(private _DiagnoseService: DiagnoseService) { }
-
+  constructor(
+    private _DiagnoseService: DiagnoseService,
+    private _TranslateService: TranslateService
+  ) {
+    this._TranslateService.langObservable.subscribe(
+      data => this.text = data
+      ); 
+      this.sex=[this.text["agesex"].male, this.text["agesex"].female];
+    }  
     
-  
   inputUpdate() {
     this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
     console.log(this.chosenAge);
+    console.log(this.text["agesex"].age);
   }
 
 

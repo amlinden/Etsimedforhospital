@@ -12,6 +12,7 @@ import { TranslateService } from '../translate.service';
 })
 
 export class SymptomsComponent implements OnInit {
+  private text: Object;
   symptoms: Array<any> = [];
   myControl: FormControl;
   options: Array<any>;
@@ -19,7 +20,16 @@ export class SymptomsComponent implements OnInit {
   filteredOptions: Observable<object[]>;
   step;
 
-  constructor(private _SearchService: SearchService, private _DiagnoseService: DiagnoseService) {
+  constructor(
+    private _SearchService: SearchService, 
+    private _DiagnoseService: DiagnoseService,
+    private _TranslateService: TranslateService
+    ){
+      this._TranslateService.langObservable.subscribe(
+        data => this.text = data
+      );
+      
+    
     this.myControl = new FormControl();
     this._DiagnoseService.currentStepObservable.subscribe( data => this.step = data );
     this._DiagnoseService.symptomsObservable.subscribe( data => this.symptoms = data );

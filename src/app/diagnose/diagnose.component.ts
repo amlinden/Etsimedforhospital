@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DiagnoseService } from '../diagnose.service';
+import {FormControl, Validators} from '@angular/forms';
 import { TranslateService } from '../translate.service';
 
 @Component({
@@ -8,21 +9,29 @@ import { TranslateService } from '../translate.service';
   styleUrls: ['./diagnose.component.scss']
 })
 export class DiagnoseComponent implements OnInit {
-
+  private text: Object;
   step: number;
+  te:string;
   showButtons: boolean;
   prevIsDisabled: boolean;
   nextIsDisabled: boolean;
 
   //Titles:
-  titles = [];
+  //titles = [];
 
-  constructor(private _DiagnoseService:DiagnoseService) {
-          
+  constructor(
+    private _DiagnoseService:DiagnoseService,
+    private _TranslateService: TranslateService
+  ) {
     this._DiagnoseService.currentStepObservable.subscribe( r =>  {
       this.step = r;
       this.enableDisableButtons();
-      console.log(this.step);
+
+     this._TranslateService.langObservable.subscribe(
+      data => this.text = data
+      ); 
+
+      
     });
 
   }
@@ -49,12 +58,12 @@ export class DiagnoseComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.titles[0] = "New Diagnose" ; //0
-    this.titles[1] = "Age & Sex"; //1
-    this.titles[2] = "Symptoms"; //2
-    this.titles[3] = "Follow up questions"; //3
-    this.titles[4] = "Result"; //4
-    this.titles[5] = "Feedback"; //5
+  //   this.titles[0] = "New diagnose"; //0
+  //   this.titles[1] = "Patient information"; //1
+  //   this.titles[2] = "Symptoms"; //2
+  //   this.titles[3] = "Follow-up questions"; //3
+  //   this.titles[4] = "Result"; //4
+  //   this.titles[5] = "Feedback"; //5
   }
 
 }

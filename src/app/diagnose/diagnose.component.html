@@ -1,3 +1,35 @@
+<md-card>
+    <md-card-title>{{text.titles[step]}}</md-card-title>
+    <!--HÄR GÅR BREDCRUMBS-->
+    <md-card-content *ngIf="!showButtons">
+        <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">{{text?.start?.start}}</button>
+    </md-card-content>
+    <md-card-content>
+        <app-agesex *ngIf="step === 1"></app-agesex>
+        <app-symptoms *ngIf="step === 2"></app-symptoms>
+        <app-questions *ngIf="step === 3"></app-questions>
+        <app-result *ngIf="step === 4"></app-result>
+        <app-feedback *ngIf="step === 5"></app-feedback>
+    </md-card-content>
+    
+    <md-card-actions *ngIf="showButtons">
+        <button md-raised-button color="accent" [disabled]="prevIsDisabled" (click)="_DiagnoseService.previousStep()">{{text?.start?.back}}</button>
+        <button md-raised-button color="primary" [disabled]="nextIsDisabled" (click)="_DiagnoseService.nextStep()">{{text?.start?.next}}</button>
+    </md-card-actions>
+</md-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <md-card>
     <md-card-content>
@@ -65,26 +97,3 @@
     [mode]="determinate"
     [value]="10">
 </md-progress-bar>-->
-<md-card>
-    <md-card-title>{{titles[step]}}</md-card-title>
-    <!--HÄR GÅR BREDCRUMBS-->
-    <md-card-content *ngIf="!showButtons">
-        <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">START</button>
-    </md-card-content>
-
-    <md-card-content>
-
-        <app-agesex *ngIf="step === 1"></app-agesex>
-        <app-symptoms *ngIf="step === 2"></app-symptoms>
-        <app-questions *ngIf="step === 3"></app-questions>
-        <app-result *ngIf="step === 4"></app-result>
-        <app-feedback *ngIf="step === 5"></app-feedback>
-
-    </md-card-content>
-    
-    <md-card-actions *ngIf="showButtons">
-        <button md-raised-button color="accent" [disabled]="prevIsDisabled" (click)="_DiagnoseService.previousStep()">PREVIOUS</button>
-        <button md-raised-button color="primary" [disabled]="nextIsDisabled" (click)="_DiagnoseService.nextStep()">NEXT</button>
-    </md-card-actions>
-</md-card>
-

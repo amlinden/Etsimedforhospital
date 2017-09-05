@@ -3,6 +3,8 @@ import {DataSource} from '@angular/cdk';
 import {CdkTableModule} from '@angular/cdk';  
 import {MdTableModule} from '@angular/material';
 import { TranslateService } from '../translate.service';
+//to use sex and age
+import {AgesexComponent} from '../agesex/agesex.component';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -22,6 +24,7 @@ export class ResultComponent implements OnInit {
   displayedColumns = ['diseaseId', 'userName', 'probability'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
+  //selectedSex = AgesexComponent.selectedSex;
   
   //selected diseases are stored in selectedvalue
   selectedValue = [];

@@ -8,12 +8,14 @@ import { TranslateService } from '../translate.service';
 })
 export class QuestionsComponent implements OnInit {
   selectedSickleave: string;
+  private text: Object;
+  sickleave: Array <any>;
 
-  sickleave = [
-    'Yes',
-    'No',
-  ];
-  constructor() { }
+  constructor(private _TranslateService: TranslateService) { this._TranslateService.langObservable.subscribe(
+      data => this.text = data
+      ); 
+      this.sickleave = [this.text["questions"].yes, this.text["questions"].no];
+    }
 
   ngOnInit() {
   }
