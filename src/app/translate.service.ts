@@ -18,7 +18,7 @@ export class TranslateService {
   private langArray: Array<string>;
 
   //Observable that components subscribe to
-  private lang: BehaviorSubject<Object>;
+  public lang: BehaviorSubject<Object>;
   public langObservable: Observable<Object>;
 
 

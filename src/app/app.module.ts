@@ -49,6 +49,7 @@ import { ResultComponent } from './result/result.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DevComponent } from './dev/dev.component';
+import { QuestionComponent } from './question/question.component';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent },
@@ -68,7 +69,8 @@ import { DevComponent } from './dev/dev.component';
     ResultComponent,
     FeedbackComponent,
     RegistrationComponent,
-    DevComponent
+    DevComponent,
+    QuestionComponent
   ],
   imports: [ //imports - allows us to add other modules to this module
     BrowserModule,

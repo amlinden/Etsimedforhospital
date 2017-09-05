@@ -20,21 +20,24 @@ export class AgesexComponent implements OnInit {
     private _DiagnoseService: DiagnoseService,
     private _TranslateService: TranslateService
   ) {
-    this._TranslateService.langObservable.subscribe(
-      data => this.text = data
-      ); 
-      this.sex=[this.text["agesex"].male, this.text["agesex"].female];
-    }  
+    this._TranslateService.langObservable
+      .subscribe( data => this.text = data );
+
+    this.sex = [
+      this.text["agesex"].male, 
+      this.text["agesex"].female
+    ];
+  }  
     
   inputUpdate() {
-    this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
-    console.log(this.chosenAge);
-    console.log(this.text["agesex"].age);
+      this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
+      console.log(this.chosenAge);
+      console.log(this.text["agesex"].age);
   }
 
-
-
   ngOnInit() {
+    this._TranslateService.langObservable
+		  .subscribe( data => {if(data !== undefined){this.text = data}} ); 
   }
 
 }

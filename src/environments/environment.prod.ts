@@ -10,5 +10,7 @@ export const environment = {
   },
   translation: {
     url: "./translate"
-  }
+  },
+  apiURL: "http://13.81.201.245:5001",
+  
 };

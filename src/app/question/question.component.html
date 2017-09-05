@@ -1,0 +1,8 @@
+<md-radio-group [(ngModel)]="answer" (change)="updateAnswer()">
+    <md-radio-button [value]="1"> <!--YES-->
+        {{text[0]}}
+    </md-radio-button>
+    <md-radio-button [value]="0"> <!--NO-->
+        {{text[1]}}
+    </md-radio-button>
+</md-radio-group>
