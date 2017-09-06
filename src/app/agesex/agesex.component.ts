@@ -14,7 +14,7 @@ export class AgesexComponent implements OnInit {
   selectedSex: string;
   private text: Object;
   sex: Array<any> = [];
-  chosenAge: number = 0;
+  chosenAge: number;
 
   constructor(
     private _DiagnoseService: DiagnoseService,
@@ -23,13 +23,14 @@ export class AgesexComponent implements OnInit {
     this._TranslateService.langObservable.subscribe(
       data => this.text = data
       ); 
+      console.log(this.selectedSex);
       this.sex=[this.text["agesex"].male, this.text["agesex"].female];
     }  
     
   inputUpdate() {
     this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
     console.log(this.chosenAge);
-    console.log(this.text["agesex"].age);
+    console.log(this.selectedSex);
   }
 
 

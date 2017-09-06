@@ -4,7 +4,7 @@ import {CdkTableModule} from '@angular/cdk';
 import {MdTableModule} from '@angular/material';
 import { TranslateService } from '../translate.service';
 //to use sex and age
-import {AgesexComponent} from '../agesex/agesex.component';
+import { DiagnoseService } from '../diagnose.service';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -22,6 +22,7 @@ import 'rxjs/add/operator/map';
 
 export class ResultComponent implements OnInit {
   displayedColumns = ['diseaseId', 'userName', 'probability'];
+  patientInfo: Object;
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
   //selectedSex = AgesexComponent.selectedSex;
@@ -55,10 +56,15 @@ export class ResultComponent implements OnInit {
     }
 
 
-  constructor(){
-  }
+  constructor(private _DiagnoseService: DiagnoseService){
+  // this._DiagnoseService.getPatientInfo(
+  //     data => this.patientInfo = data
+  //   ); 
+ }
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
+    
+    
   }
 }
 const NAMES = ['Abdominal distention', 'Abdominal pain', 'Abnormal appearing skin', 'Abnormal appetite', 'Fever'];

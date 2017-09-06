@@ -3,7 +3,7 @@
     <md-card-subtitle>{{text?.agesex?.subheading}}</md-card-subtitle>
     <md-card-content>
       <md-input-container class="example-full-width">
-          <input style="font-size:18px;" mdInput required maxlength="4" name="age" min="0" [(ngModel)]="chosenAge" type="number" placeholder="{{text?.agesex?.age}}" (input)="inputUpdate()" required>
+          <input style="font-size:18px;" mdInput required min="0" [(ngModel)]="chosenAge" type="number" placeholder="{{text?.agesex?.age}}" (input)="inputUpdate()" required>
       </md-input-container>
     </md-card-content>
     <md-card-content>
@@ -12,7 +12,7 @@
             {{i}}
         </md-radio-button>
     </md-radio-group>
-    <div class="example-selected-value">Selected sex: {{selectedSex}}</div>
+    <div class="example-selected-value">Selected sex: {{selectedSex}} {{chosenAge}}</div>
     </md-card-content>
 </md-card>
 
