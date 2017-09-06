@@ -18,15 +18,15 @@
     <md-expansion-panel-header>
       <mat-panel-title style="width:30%;">
         <md-checkbox 
-          name="{{disease.diseasetype}}" 
-          value="{{disease.diseasetype}}"
+          name="{{disease.name}}" 
+          value="{{disease.name}}"
           (change)="change($event, disease)" >
-          {{disease.diseasetype}}
+          {{disease.name}}
         </md-checkbox>
       </mat-panel-title>
       <mat-panel-description></mat-panel-description>
     </md-expansion-panel-header>
-      <p>This is more information about the disease</p>
+      <p>{{disease.description}}</p>
   </md-expansion-panel>
   <md-expansion-panel>
     <md-expansion-panel-header>

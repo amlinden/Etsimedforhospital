@@ -1,5 +1,5 @@
 <md-card>
-    <md-card-title>{{text.titles[step]}}</md-card-title>
+    <md-card-title></md-card-title><!--{{text?.titles[step]}}-->
     <!--HÄR GÅR BREDCRUMBS-->
     <md-card-content *ngIf="!showButtons">
         <button md-raised-button color="primary" (click)="_DiagnoseService.nextStep()">{{text?.start?.start}}</button>

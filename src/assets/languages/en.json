@@ -18,11 +18,14 @@
     },
      "symptoms":{
         "placeholder": "Search symptoms",
-        "symptomnotfound": "Can't find symptom! ",
+        "symptomnotfound": "Can't find symptom!",
         "add": "Add symptom",
         "symptom": "Symptom"
     },
-    "titles": ["New Diagnose","Patient information", "Symptoms",
+    "titles": [
+        "New Diagnose",
+        "Patient information", 
+        "Symptoms",
         "Follow-up questions",
         "Result",
         "Feedback"]

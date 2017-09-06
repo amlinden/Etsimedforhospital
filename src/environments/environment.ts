@@ -15,6 +15,8 @@ export const environment = {
   },
   translation: {
     url: "assets/languages/"
-  }
+  },
+  apiURL: "http://13.81.201.245:5001",
+  
 };
 

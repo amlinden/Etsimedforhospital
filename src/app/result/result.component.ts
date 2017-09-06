@@ -3,8 +3,10 @@ import {DataSource} from '@angular/cdk';
 import {CdkTableModule} from '@angular/cdk';  
 import {MdTableModule} from '@angular/material';
 import { TranslateService } from '../translate.service';
-//to use sex and age
+import { SearchService } from '../search.service';
 import { DiagnoseService } from '../diagnose.service';
+//to use sex and age
+//import { DiagnoseService } from '../diagnose.service';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -30,16 +32,17 @@ export class ResultComponent implements OnInit {
   //selected diseases are stored in selectedvalue
   selectedValue = [];
   diseases = [
+    /*
     {diseasetype:'Abdominal distention'}, 
     {diseasetype:'Abdominal pain'}, 
     {diseasetype:'Abnormal appearing skin'}, 
     {diseasetype:'Abnormal appetite'}, 
-    {diseasetype:'Fever'}
+    {diseasetype:'Fever'}*/
   ];  
   
   change(e, type){
-    console.log(e.checked);
-    console.log(type);
+    //console.log(e.checked);
+    //console.log(type);
     
     if(e.checked){
       //puch only type to get the whole object (now only the name of disease)
@@ -51,16 +54,31 @@ export class ResultComponent implements OnInit {
      this.selectedValue.splice(index, 1);
     }
   }
+
+  diagInfo(id){
+    return this._SearchService.getDiagInfo(id);
+  }
+
   findIndexToUpdate(type) { 
         return type.diseasetype === this;
+  }
+
+  constructor(private _SearchService : SearchService, private _DiagnoseService : DiagnoseService){
+    this._SearchService.getDiagnoses( _DiagnoseService.getSymptoms() )
+    .subscribe( res => {
+      this.diseases = res;
+      this.updateDiseases();
+    })
+  }
+
+  updateDiseases(){
+    for(let i=0; i < this.diseases.length; i++){
+      //Get description for every diagnose
+      this._SearchService.getDiagInfo( this.diseases[i].id )
+          .subscribe( data => {this.diseases[i].description = data.description;console.log(data)});
     }
+  }
 
-
-  constructor(private _DiagnoseService: DiagnoseService){
-  // this._DiagnoseService.getPatientInfo(
-  //     data => this.patientInfo = data
-  //   ); 
- }
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
     
