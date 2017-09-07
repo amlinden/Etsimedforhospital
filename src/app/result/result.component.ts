@@ -5,8 +5,9 @@ import {MdTableModule} from '@angular/material';
 import { TranslateService } from '../translate.service';
 import { SearchService } from '../search.service';
 import { DiagnoseService } from '../diagnose.service';
-//to use sex and age
-//import { DiagnoseService } from '../diagnose.service';
+//to use patient information
+import {Injectable} from '@angular/core';
+import {PatientInfo} from "../datatypes/patientInfo";
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -14,7 +15,19 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 
-//import {AgesexComponent} from '../agesex;
+// @Injectable()
+// export class patient{
+//   private patientInfo: PatientInfo;
+//   getPatientInfo(){
+//     return this.getPatientInfo;
+       
+    
+//   }
+//   constructor(){
+//     console.log(this.getPatientInfo);
+//   }
+// }
+
 
 @Component({
   selector: 'app-result',
@@ -28,22 +41,13 @@ export class ResultComponent implements OnInit {
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
   //selectedSex = AgesexComponent.selectedSex;
-  
   //selected diseases are stored in selectedvalue
   selectedValue = [];
-  diseases = [
-    /*
-    {diseasetype:'Abdominal distention'}, 
-    {diseasetype:'Abdominal pain'}, 
-    {diseasetype:'Abnormal appearing skin'}, 
-    {diseasetype:'Abnormal appetite'}, 
-    {diseasetype:'Fever'}*/
-  ];  
+  diseases = [];  
   
   change(e, type){
     //console.log(e.checked);
     //console.log(type);
-    
     if(e.checked){
       //puch only type to get the whole object (now only the name of disease)
       this.selectedValue.push(type.diseasetype);
@@ -68,6 +72,7 @@ export class ResultComponent implements OnInit {
     .subscribe( res => {
       this.diseases = res;
       this.updateDiseases();
+      console.log(this.patientInfo);
     })
   }
 
@@ -81,6 +86,8 @@ export class ResultComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
+    this.patientInfo= this._DiagnoseService.getPatientInfo();
+    console.log(this._DiagnoseService.getSymptoms());
     
     
   }

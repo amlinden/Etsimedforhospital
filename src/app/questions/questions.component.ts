@@ -9,12 +9,8 @@ import { DiagnoseService } from "../diagnose.service";
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  selectedSickleave: string;
   private text: Object;
-
-  sickleave: Array<any>;
   yesNoQuestion: Array<any>;
-
   questions: Array<any>;
   
   constructor(
@@ -37,8 +33,6 @@ export class QuestionsComponent implements OnInit {
 
 
     this._TranslateService.langObservable.subscribe( data => this.text = data); 
-
-    this.sickleave = [this.text["questions"].yes, this.text["questions"].no];
     this.yesNoQuestion = [this.text["questions"].yes, this.text["questions"].no];
   }
   ngOnInit() {

@@ -1,5 +1,11 @@
 <md-card class="feedback">
   <md-card-content>
+      <md-card-subtitle>Was the call about self repported sick leave?</md-card-subtitle>
+    <md-radio-group name="Sickleave" [(ngModel)]="selectedSickleave" required>
+        <md-radio-button class="example-radio-button" *ngFor="let s of sickleave" [value]="s">
+            {{s}}
+        </md-radio-button>
+    </md-radio-group>
       <md-card-subtitle>{{text?.feedback?.accuracy}}</md-card-subtitle>
       
       

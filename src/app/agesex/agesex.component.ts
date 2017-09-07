@@ -11,9 +11,9 @@ import {TranslateService } from '../translate.service';
 
 
 export class AgesexComponent implements OnInit {
-  selectedSex: string;
+  selectedSex:string;
   private text: Object;
-  sex: Array<any> = [];
+  sex: Array<object> = [];
   chosenAge: number;
 
   constructor(
@@ -23,25 +23,32 @@ export class AgesexComponent implements OnInit {
     this._TranslateService.langObservable
       .subscribe( data => this.text = data );
 
-    this.sex = [
-      this.text["agesex"].male, 
-      this.text["agesex"].female
+    this.sex = [{
+      "text" : this.text["agesex"].male,
+      "value" : 1
+    },{
+      "text" : this.text["agesex"].female,
+      "value" : 0
+    }
     ];
-  }  
-    
-  inputUpdate() {
-      this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
-      console.log(this.chosenAge);
-      console.log(this.text["agesex"].age);
+    console.log();
+  }    
+
+  onSelectionChange(entry){
+    this.selectedSex =  entry;
+    console.log(this.selectedSex);  
   }
 
+    inputUpdate() {
+      this._DiagnoseService.updatePatientInfo(this.chosenAge, this.selectedSex);
+      
+  }
   ngOnInit() {
     this._TranslateService.langObservable
 		  .subscribe( data => {if(data !== undefined){this.text = data}} ); 
-  }
 
 }
 
-
+}
 
 

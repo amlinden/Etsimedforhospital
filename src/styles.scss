@@ -62,8 +62,9 @@ $theme: mat-light-theme($primary, $accent, $warn);
 }
 //containers
 .sy-container{
-  height: 500px;
+  height: 450px;
   display: flex;
+  
 
   .sy-search{
     width: 70%;

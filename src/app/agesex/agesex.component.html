@@ -8,11 +8,10 @@
     </md-card-content>
     <md-card-content>
       <md-radio-group name="Sex" [(ngModel)]="selectedSex" required>
-        <md-radio-button class="example-radio-button" *ngFor="let i of sex" [value]="i">
-            {{i}}
+        <md-radio-button class="example-radio-button" *ngFor="let i of sex" [value]="i.value" (change)="onSelectionChange(i)" >
+            {{i.text}}
         </md-radio-button>
     </md-radio-group>
-    <div class="example-selected-value">Selected sex: {{selectedSex}} {{chosenAge}}</div>
     </md-card-content>
 </md-card>
 
